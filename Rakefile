@@ -4,6 +4,12 @@ require 'erb'
 desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
+  print "Your Name: "
+  STDOUT.flush
+  @name = STDIN.gets.chomp
+  print "Your Email: "
+  STDOUT.flush
+  @email = STDIN.gets.chomp
   Dir['*'].each do |file|
     next if %w[Rakefile README.rdoc LICENSE].include? file
 
@@ -44,8 +50,8 @@ def link_file(file)
       new_file.write ERB.new(File.read(file)).result(binding)
     end
   else
-    # move gitconfig to ~/.gitconfig instead of linking, to prevent uploading to github
-    if file =~ /gitconfig$/
+    # move generated files instead of linking
+    if file =~ /(gitconfig|hgignore|hgrc)$/
       puts "moving #{file} to ~/.#{file}"
       system %Q{mv "$PWD/#{file}" "$HOME/.#{file}"}
     else

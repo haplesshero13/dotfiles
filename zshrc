@@ -1,63 +1,71 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+#
+# Sets Prezto options.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#   haplesshero13 <haplesshero13@gmail.com>
+#
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="steeef"
+# Set the key mapping style to 'emacs' or 'vi'.
+zstyle ':prezto:module:editor' keymap 'vi'
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
+# Auto convert .... to ../..
+zstyle ':prezto:module:editor' dot-expansion 'no'
 
-# Comment this out to disable weekly auto-update checks
-export DISABLE_AUTO_UPDATE="true"
+# Set case-sensitivity for completion, history lookup, etc.
+zstyle ':prezto:*:*' case-sensitive 'no'
 
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
+# Color output (auto set to 'no' on dumb terminals).
+zstyle ':prezto:*:*' color 'yes'
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial)
+# Auto set the tab and window titles.
+zstyle ':prezto:module:terminal' auto-title 'yes'
 
-source $ZSH/oh-my-zsh.sh
+# Set the Zsh modules to load (man zshmodules).
+# zstyle ':prezto:load' zmodule 'attr' 'stat'
+
+# Set the Zsh functions to load (man zshcontrib).
+# zstyle ':prezto:load' zfunction 'zargs' 'zmv'
+
+# Set the Prezto modules to load (browse modules).
+# The order matters.
+zstyle ':prezto:load' pmodule \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'prompt' \
+  'git' \
+  'ruby' \
+  'rails'
+
+# Set the prompt theme to load.
+# Setting it to 'random' loads a random theme.
+# Auto set to 'off' on dumb terminals.
+fpath=(~/.dotfiles/zsh $fpath)
+zstyle ':omz:module:prompt' theme 'hapless'
+
+# Source Prezto.
+source "$PDIR/init.zsh"
 
 # Customize to your needs...
-export PATH=$PATH:~/.bin
+# Load rvm
+[[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
 
-alias vi='vim'
-alias space='du -ms * .[^\.]* | sort -nr | less -i'
-alias d='cd ~/.dotfiles'
-
-# reboot/shutdown
-alias on='sudo reboot'
-alias off='sudo shutdown -h now'
-
-# todo.txt
-alias t='$HOME/.bin/todo.sh'
-alias ts='$HOME/.bin/todo.sh addto someday.txt'
-alias tv='$HOME/.bin/todo.sh view context'
-
-# git
-alias gsv='git svn dcommit'
-
-# hg
+# hg aliases
 alias hgcm='hg commit -m'
+alias hgp='hg pull -u'
 alias hgu='hg update'
-alias hgm='hg merge'
-alias hgmp='hg merge production'
-alias hgmd='hg merge development'
-alias hgms='hg merge staging'
-alias hgup='hg update production'
-alias hgud='hg update development'
-alias hgus='hg update staging'
 
-# set vi mode
-#bindkey -v
+# Use vim
+export EDITOR='vim'
+export VISUAL='vim'
 
-# add custom functions
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
-
-# add local
+# add local per-machine config
 if [ -f $HOME/.zshrc-local ]; then
     source $HOME/.zshrc-local
 fi
