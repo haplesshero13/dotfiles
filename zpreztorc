@@ -46,7 +46,7 @@ zstyle ':prezto:load' pmodule \
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
 fpath=(~/.zsh $fpath)
-zstyle ':omz:module:prompt' theme 'hapless'
+zstyle ':prezto:module:prompt' theme 'hapless'
 
 # Customize to your needs...
 # hg aliases
