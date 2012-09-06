@@ -3,11 +3,10 @@
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
-#   haplesshero13 <haplesshero13@gmail.com>
 #
 
 # Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':prezto:module:editor' keymap 'vi'
+zstyle ':prezto:module:editor' keymap 'emacs'
 
 # Auto convert .... to ../..
 zstyle ':prezto:module:editor' dot-expansion 'no'
@@ -46,20 +45,17 @@ zstyle ':prezto:load' pmodule \
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
-fpath=(~/.dotfiles/zsh $fpath)
+fpath=(~/.zsh $fpath)
 zstyle ':omz:module:prompt' theme 'hapless'
 
-# Source Prezto.
-source "$PDIR/init.zsh"
-
 # Customize to your needs...
-# Load rvm
-[[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
-
 # hg aliases
 alias hgcm='hg commit -m'
 alias hgp='hg pull -u'
 alias hgu='hg update'
+
+# Load rvm
+[[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm
 
 # Use vim
 export EDITOR='vim'
