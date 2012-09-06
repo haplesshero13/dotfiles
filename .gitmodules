@@ -1,9 +1,9 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/sorin-ionescu/prezto.git
 [submodule "janus/vim-slim"]
 	path = janus/vim-slim
 	url = https://github.com/bbommarito/vim-slim.git
 [submodule "janus/vim-rails"]
 	path = janus/vim-rails
 	url = https://github.com/tpope/vim-rails.git
+[submodule "zprezto"]
+	path = zprezto
+	url = https://github.com/sorin-ionescu/prezto.git

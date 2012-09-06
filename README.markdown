@@ -2,7 +2,7 @@
 Go from freshly installed Linux/OS X to fully functioning faster than you can say "dot files"!
 
 ## Acknowledgement
-* steeef's [dotfiles](http://github.com/ryanb/dotfiles): Where I got the idea, parent repo, prompt ideas
+* steeef's [dotfiles](https://github.com/ryanb/dotfiles): Where I got the idea, parent repo, prompt ideas
 * sorin's [prezto](https://github.com/sorin-ionescu/prezto): Stole his prompt theme, and his zsh framework
 
 ## Installation
