@@ -30,6 +30,9 @@ $ rvm install 1.9.3
 $ git clone --recursive git://github.com/haplesshero13/dotfiles ~/.dotfiles
 $ cd ~/.dotfiles
 $ rake install
+$ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+$  ln -si "$rcfile" "$ZDOTDIR/.${rcfile:t}"
+$ done
 $ curl -Lo- https://bit.ly/janus-bootstrap | bash
 ```
 ## Components
