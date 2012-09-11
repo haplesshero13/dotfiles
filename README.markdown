@@ -25,7 +25,7 @@ rvm install 1.9.3
 ```
 ### Dotfiles
 
-```zsh
+```bash
 zsh
 git clone --recursive git://github.com/haplesshero13/dotfiles ~/.dotfiles
 cd ~/.dotfiles
