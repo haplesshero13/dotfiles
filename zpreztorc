@@ -53,6 +53,7 @@ zstyle ':prezto:module:prompt' theme 'hapless'
 alias hgcm='hg commit -m'
 alias hgp='hg pull -u'
 alias hgu='hg update'
+alias hgs='hg status'
 
 # Load rvm
 [[ -s $HOME/.rvm/scripts/rvm ]] && . $HOME/.rvm/scripts/rvm

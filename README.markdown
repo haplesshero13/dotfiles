@@ -7,33 +7,35 @@ Go from freshly installed Linux/OS X to fully functioning faster than you can sa
 
 ## Installation
 ### Prerequisites
-```console
-$ sudo <apt-get|brew|yum> install zsh vim git mercurial curl
-$ hg clone http://bitbucket.org/sjl/hg-prompt/ ~/.hg-prompt
+```bash
+sudo <apt-get|brew|yum> install zsh vim git mercurial curl
+hg clone http://bitbucket.org/sjl/hg-prompt/ ~/.hg-prompt
 ```
 
 Prerequisites include Ruby, so let's install that using RVM:
 
 **RVM**
 
-```console
-$ curl -L get.rvm.io | bash -s stable
-$ source "$HOME/.rvm/scripts/rvm"
-$ rvm requirements
-$ # install some stuff needed for Ruby (MRI)
-$ rvm install 1.9.3
+```bash
+curl -L get.rvm.io | bash -s stable
+source "$HOME/.rvm/scripts/rvm"
+rvm requirements
+# install some stuff needed for Ruby (MRI)
+rvm install 1.9.3
 ```
-### The Good Stuff
-**dotfiles**
+### Dotfiles
 
-```console
-$ git clone --recursive git://github.com/haplesshero13/dotfiles ~/.dotfiles
-$ cd ~/.dotfiles
-$ rake install
-$ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-$  ln -si "$rcfile" "$ZDOTDIR/.${rcfile:t}"
-$ done
-$ curl -Lo- https://bit.ly/janus-bootstrap | bash
+```zsh
+zsh
+git clone --recursive git://github.com/haplesshero13/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+rake install
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+ ln -si "$rcfile" "$ZDOTDIR/.${rcfile:t}"
+done
+curl -Lo- https://bit.ly/janus-bootstrap | bash
+chsh -s /bin/zsh
 ```
 ## Components
 ### Zsh and Prezto
